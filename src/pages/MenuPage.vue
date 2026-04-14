@@ -1,149 +1,34 @@
 <template>
-  <div class="menu-page">
-    <div class="container">
-      <div class="menu-header">
-        <h1>МЕНЮ И ЦЕНЫ</h1>
-        <p>Актуальные цены на наши продукты</p>
+  <div class="menu-page page-shell">
+    <div class="page-hero page-hero--menu">
+      <div class="page-hero-overlay">
+        <div class="page-container">
+          <div class="page-hero-content">
+            <h1>Меню и цены</h1>
+            <p>Напитки и десерты — всё, что любят наши гости</p>
+          </div>
+        </div>
       </div>
- 
+    </div>
+
+    <div class="page-container">
       <div class="menu-content">
-        <!-- Кофе -->
-        <section class="menu-section">
-          <h2 class="section-title">☕ КОФЕ</h2>
+        <section
+          v-for="section in menuSections"
+          :key="section.title"
+          class="menu-section"
+        >
+          <h2 class="section-title">{{ section.title }}</h2>
           <div class="menu-items">
-            <div class="menu-item">
+            <div v-for="item in section.items" :key="item.name" class="menu-item">
               <div class="item-image">
-                <img src="/menu-images/espresso.jpg" alt="Эспрессо" />
+                <img :src="item.image" :alt="item.name" />
               </div>
               <div class="item-header">
-                <h3>Эспрессо</h3>
-                <span class="price">120 ₽</span>
+                <h3>{{ item.name }}</h3>
+                <span class="price">{{ item.price }}</span>
               </div>
-              <p>30 мл, крепкий и ароматный</p>
-            </div>
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/americano.jpg" alt="Американо" />
-              </div>
-              <div class="item-header">
-                <h3>Американо</h3>
-                <span class="price">130 / 200 мл</span>
-              </div>
-              <p>Классический черный кофе</p>
-            </div>
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/cappuccino.jpg" alt="Капучино" />
-              </div>
-              <div class="item-header">
-                <h3>Капучино</h3>
-                <span class="price">160 / 200 мл</span>
-              </div>
-              <p>С молочной пенкой и корицей</p>
-            </div>
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/latte.jpg" alt="Латте" />
-              </div>
-              <div class="item-header">
-                <h3>Латте</h3>
-                <span class="price">170 / 300 мл</span>
-              </div>
-              <p>Нежный кофе с большим количеством молока</p>
-            </div>
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/flat-white.jpg" alt="Флет-Уайт" />
-              </div>
-              <div class="item-header">
-                <h3>Флет-Уайт</h3>
-                <span class="price">190 / 200 мл</span>
-              </div>
-              <p>Идеальный баланс кофе и молока</p>
-            </div>
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/raf.jpg" alt="Раф" />
-              </div>
-              <div class="item-header">
-                <h3>Раф</h3>
-                <span class="price">200 / 300 мл</span>
-              </div>
-              <p>Кофе со сливками и ванилью</p>
-            </div>
-          </div>
-        </section>
- 
-        <!-- Десерты -->
-        <section class="menu-section">
-          <h2 class="section-title">🍰 ДЕСЕРТЫ</h2>
-          <div class="menu-items">
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/tiramisu.jpg" alt="Тирамису" />
-              </div>
-              <div class="item-header">
-                <h3>Тирамису</h3>
-                <span class="price">250 ₽</span>
-              </div>
-              <p>Классический итальянский десерт</p>
-            </div>
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/cheesecake.jpg" alt="Чизкейк Нью-Йорк" />
-              </div>
-              <div class="item-header">
-                <h3>Чизкейк Нью-Йорк</h3>
-                <span class="price">220 ₽</span>
-              </div>
-              <p>Нежный творожный десерт</p>
-            </div>
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/medovik.jpg" alt="Медовик" />
-              </div>
-              <div class="item-header">
-                <h3>Медовик</h3>
-                <span class="price">180 ₽</span>
-              </div>
-              <p>Традиционный русский торт</p>
-            </div>
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/macaron.jpg" alt="Макарон" />
-              </div>
-              <div class="item-header">
-                <h3>Макарон</h3>
-                <span class="price">90 ₽ / шт</span>
-              </div>
-              <p>Французское печенье с начинкой</p>
-            </div>
-          </div>
-        </section>
- 
-        <!-- Дополнительно -->
-        <section class="menu-section">
-          <h2 class="section-title">➕ ДОПОЛНИТЕЛЬНО</h2>
-          <div class="menu-items">
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/syrups.jpg" alt="Сиропы" />
-              </div>
-              <div class="item-header">
-                <h3>Сиропы</h3>
-                <span class="price">+30 ₽</span>
-              </div>
-              <p>Ваниль, карамель, кокос, лесной орех</p>
-            </div>
-            <div class="menu-item">
-              <div class="item-image">
-                <img src="/menu-images/alternative-milk.jpg" alt="Альтернативное молоко" />
-              </div>
-              <div class="item-header">
-                <h3>Альтернативное молоко</h3>
-                <span class="price">+20 ₽</span>
-              </div>
-              <p>Кокосовое, миндальное, соевое</p>
+              <p>{{ item.description }}</p>
             </div>
           </div>
         </section>
@@ -151,59 +36,102 @@
     </div>
   </div>
 </template>
- 
+
+<script setup>
+const menuSections = [
+  {
+    title: '☕ Кофе',
+    items: [
+      {
+        name: 'Эспрессо',
+        price: '120 ₽',
+        description: '30 мл — крепкий и ароматный',
+        image: 'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=800&auto=format&fit=crop'
+      },
+      {
+        name: 'Американо',
+        price: '130 ₽ · 200 мл',
+        description: 'Классический чёрный кофе',
+        image: 'https://images.unsplash.com/photo-1494314671902-399b18174975?w=800&auto=format&fit=crop'
+      },
+      {
+        name: 'Капучино',
+        price: '160 ₽ · 200 мл',
+        description: 'Эспрессо, молоко и нежная молочная пенка',
+        image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&auto=format&fit=crop'
+      },
+      {
+        name: 'Латте',
+        price: '170 ₽ · 300 мл',
+        description: 'Мягкий вкус: больше молока, деликатная горчинка',
+        image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&auto=format&fit=crop'
+      },
+      {
+        name: 'Флэт-уайт',
+        price: '190 ₽ · 200 мл',
+        description: 'Идеальный баланс кофе и молока',
+        image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&auto=format&fit=crop'
+      },
+      {
+        name: 'Раф',
+        price: '200 ₽ · 300 мл',
+        description: 'Эспрессо, сливки и сироп — нежная классика',
+        image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=800&auto=format&fit=crop'
+      }
+    ]
+  },
+  {
+    title: '🍰 Десерты',
+    items: [
+      {
+        name: 'Тирамису',
+        price: '250 ₽',
+        description: 'Классический итальянский десерт',
+        image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&auto=format&fit=crop'
+      },
+      {
+        name: 'Чизкейк Нью-Йорк',
+        price: '220 ₽',
+        description: 'Нежный творожный десерт',
+        image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=800&auto=format&fit=crop'
+      },
+      {
+        name: 'Медовик',
+        price: '180 ₽',
+        description: 'Традиционный русский торт',
+        image: 'https://yastatic.net/naydex/yandex-search/RoQn69z78/7ae2803Q8/DuKAzDxkBgLBMC0SFXfsUKX_m8dXvqaxqR4FR4gugqMvTDlkNgn38kJnD-gmZIx2kxDdD2jIRh5DnDNCLrsIQGpuedRY0Le-caiclrnXSOQJ-qfHU_v7lfUbzaw'
+      },
+      {
+        name: 'Макарон',
+        price: '90 ₽ / шт',
+        description: 'Французское миндальное печенье с начинкой',
+        image: 'https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=800&auto=format&fit=crop'
+      }
+    ]
+  },
+  {
+    title: '➕ Дополнительно',
+    items: [
+      {
+        name: 'Сиропы',
+        price: '+30 ₽',
+        description: 'Ваниль, карамель, кокос, лесной орех',
+        image: 'https://avatars.mds.yandex.net/i?id=8221c41e76b6d9524458c7d53a274390_l-5869577-images-thumbs&n=13'
+      },
+      {
+        name: 'Альтернативное молоко',
+        price: '+20 ₽',
+        description: 'Кокосовое, миндальное, соевое',
+        image: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=800&auto=format&fit=crop'
+      }
+    ]
+  }
+]
+</script>
+
 <style scoped>
-.menu-page {
-  padding: 2.5rem 0;
-  background: #ffffff;
-  min-height: 100vh;
-}
- 
-.menu-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding: 3.2rem 2rem;
+.page-hero--menu {
   background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.menu-header::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.82) 0%, rgba(45, 45, 45, 0.75) 100%);
-}
-
-.menu-header::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #c9a66b, #d4af37);
-}
- 
-.menu-header h1 {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: 2px;
-  position: relative;
-  z-index: 1;
-}
- 
-.menu-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  font-weight: 300;
-  position: relative;
-  z-index: 1;
 }
  
 .menu-section {
@@ -217,7 +145,7 @@
   padding-left: 0;
   margin-bottom: 2rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.02em;
   position: relative;
   padding-bottom: 0.6rem;
 }
@@ -236,34 +164,27 @@
 .menu-items {
   display: grid;
   gap: 1.5rem;
+  grid-template-columns: 1fr;
 }
  
 .menu-item {
   background: white;
   padding: 0;
   border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  border: 1px solid #E0E0E0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-sm);
+  border: var(--border-soft);
+  transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
   overflow: hidden;
-  animation: fadeInUp 0.6s ease;
 }
-
-.menu-item:nth-child(1) { animation-delay: 0.1s; }
-.menu-item:nth-child(2) { animation-delay: 0.2s; }
-.menu-item:nth-child(3) { animation-delay: 0.3s; }
-.menu-item:nth-child(4) { animation-delay: 0.4s; }
-.menu-item:nth-child(5) { animation-delay: 0.5s; }
-.menu-item:nth-child(6) { animation-delay: 0.6s; }
  
 .menu-item:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-lg);
   border-color: #c9a66b;
 }
 
 .item-image {
-  height: 200px;
+  height: 285px;
   overflow: hidden;
   position: relative;
   border-bottom: 3px solid #c9a66b;
@@ -282,6 +203,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.6s ease;
 }
 
@@ -290,7 +212,7 @@
 }
 
 .menu-item:hover .item-image img {
-  transform: scale(1.1);
+  transform: scale(1.06);
 }
  
 .menu-item .item-header {
@@ -303,13 +225,15 @@
   margin: 0;
   font-size: 1rem;
   line-height: 1.6;
+  min-height: 3.2rem;
 }
  
 .item-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 0.5rem;
+  gap: 0.75rem;
 }
  
 .item-header h3 {
@@ -320,47 +244,25 @@
 }
  
 .price {
-  font-weight: bold;
+  font-weight: 700;
   color: #8B4513;
-  font-size: 1.3rem;
+  font-size: 1.05rem;
+  white-space: nowrap;
   background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
   padding: 0.4rem 1rem;
   border-radius: 25px;
-  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.2);
+  box-shadow: 0 2px 10px rgba(139, 69, 19, 0.16);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
- 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .menu-items {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 767px) {
-  .menu-items {
-    grid-template-columns: 1fr;
-  }
-  
   .item-image {
-    height: 180px;
-  }
-  
-  .menu-header h1 {
-    font-size: 2rem;
-  }
-  
-  .menu-header p {
-    font-size: 1rem;
+    height: 235px;
   }
 }
 </style>

@@ -7,24 +7,14 @@
         </router-link>
       </div>
       <nav class="nav">
-        <router-link to="/" class="nav-link" active-class="active">
-          <span class="nav-text">Главная</span>
-          <span class="nav-indicator"></span>
-        </router-link>
-        <router-link to="/menu" class="nav-link" active-class="active">
-          <span class="nav-text">Меню</span>
-          <span class="nav-indicator"></span>
-        </router-link>
-        <router-link to="/about" class="nav-link" active-class="active">
-          <span class="nav-text">О нас</span>
-          <span class="nav-indicator"></span>
-        </router-link>
-        <router-link to="/reviews" class="nav-link" active-class="active">
-          <span class="nav-text">Отзывы</span>
-          <span class="nav-indicator"></span>
-        </router-link>
-        <router-link to="/contact" class="nav-link" active-class="active">
-          <span class="nav-text">Контакты</span>
+        <router-link
+          v-for="link in navLinks"
+          :key="link.to"
+          :to="link.to"
+          class="nav-link"
+          active-class="active"
+        >
+          <span class="nav-text">{{ link.label }}</span>
           <span class="nav-indicator"></span>
         </router-link>
       </nav>
@@ -32,12 +22,22 @@
   </header>
 </template>
 
+<script setup>
+const navLinks = [
+  { to: '/', label: 'Главная' },
+  { to: '/menu', label: 'Меню' },
+  { to: '/about', label: 'О нас' },
+  { to: '/reviews', label: 'Отзывы' },
+  { to: '/contact', label: 'Контакты' }
+]
+</script>
+
 <style scoped>
 .header {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
   color: white;
   padding: 0.6rem 0;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -70,7 +70,7 @@
   width: 130px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
 }
 
 .nav {
@@ -156,16 +156,16 @@
     gap: 1rem;
     padding: 0 1rem;
   }
-  
+
   .logo-image {
     width: 110px;
   }
-  
+
   .nav {
     justify-content: center;
     gap: 0.4rem;
   }
-  
+
   .nav-link {
     padding: 0.4rem 1rem;
     font-size: 0.85rem;

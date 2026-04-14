@@ -5,36 +5,25 @@
       <div class="container">
         <div class="hero-content">
           <h1 class="hero-title">Milty Coffee</h1>
-          <p class="hero-subtitle">Лучший кофе в городе</p>
+          <p class="hero-subtitle">Кофе, к которому хочется возвращаться</p>
           <router-link to="/menu" class="cta-button">
-            СМОТРЕТЬ МЕНЮ
+            Смотреть меню
           </router-link>
         </div>
       </div>
     </section>
 
-    <!-- Адреса кофеен -->
-    <section class="locations">
+    <section class="highlights">
       <div class="container">
-        <h2 class="section-title">Наши кофейни</h2>
-        <div class="locations-grid">
-          <div class="city-group">
-            <h3>Москва</h3>
-            <ul>
-              <li>ул. Кофейная, 15</li>
-              <li>Арбат, 5</li>
-              <li>ул. Ленина, 20</li>
-              <li>пр. Мира, 10</li>
-            </ul>
-          </div>
-          <div class="city-group">
-            <h3>Владимир</h3>
-            <ul>
-              <li>ул. Большая Московская, 1</li>
-              <li>ул. Мира, 30</li>
-              <li>пр. Ленина, 5</li>
-            </ul>
-          </div>
+        <div class="highlights-grid">
+          <article
+            v-for="highlight in highlights"
+            :key="highlight.title"
+            class="highlight-card"
+          >
+            <h3>{{ highlight.title }}</h3>
+            <p>{{ highlight.text }}</p>
+          </article>
         </div>
       </div>
     </section>
@@ -42,21 +31,46 @@
     <!-- Призыв к действию -->
     <section class="cta-section">
       <div class="container">
-        <h2>Попробуйте наш кофе уже сегодня!</h2>
-        <p>Приходите и убедитесь сами в качестве нашего кофе</p>
+        <h2>Загляните к нам сегодня</h2>
+        <p>Убедитесь в качестве зерна и сервиса — мы будем рады видеть вас</p>
         <router-link to="/contact" class="cta-button secondary">
-          НАШИ КОНТАКТЫ
+          Контакты и адреса
         </router-link>
       </div>
     </section>
+
   </div>
 </template>
+
+<script setup>
+const highlights = [
+  {
+    title: 'Свежая обжарка',
+    text: 'Используем свежеобжаренные зерна и следим за стабильностью вкуса.'
+  },
+  {
+    title: 'Уютная атмосфера',
+    text: 'Пространство для встреч, работы и спокойного отдыха в течение дня.'
+  },
+  {
+    title: 'Быстрый сервис',
+    text: 'Готовим аккуратно и без лишнего ожидания даже в часы пик.'
+  }
+]
+</script>
 
 <style scoped>
 .home-page {
   padding: 0;
-  background: #ffffff;
+  background: var(--coffee-bg, #fdfbf7);
   min-height: 100vh;
+  font-family: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .hero {
@@ -88,19 +102,19 @@
 .hero-title {
   font-size: 4rem;
   margin-bottom: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -1px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-  line-height: 1.1;
+  line-height: 1.15;
   color: white;
 }
 
 .hero-subtitle {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: 2.5rem;
   opacity: 0.95;
   font-weight: 300;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.01em;
 }
 
 .cta-button {
@@ -108,14 +122,14 @@
   background: linear-gradient(135deg, #c9a66b 0%, #d4af37 100%);
   color: #1a1a1a;
   padding: 1.2rem 3rem;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   text-decoration: none;
   border-radius: 50px;
-  transition: all 0.3s ease;
+  transition: transform var(--transition-med), box-shadow var(--transition-med), background var(--transition-med), color var(--transition-med);
   border: none;
   box-shadow: 0 4px 15px rgba(201, 166, 107, 0.4);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.02em;
 }
 
 .cta-button:hover {
@@ -137,18 +151,47 @@
   border-color: #c9a66b;
 }
 
-.locations { padding: 5rem 0; background: #fdfbf7; color: #333; }
-.locations .section-title { color: #5D4037; margin-bottom: 3rem; }
-.locations-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 900px; margin: 0 auto; padding: 0 2rem; }
-.city-group { background: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; }
-.city-group h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: #8B4513; }
-.city-group ul { list-style: none; padding: 0; }
-.city-group li { margin-bottom: 0.8rem; color: #555; position: relative; padding-left: 1.5rem; font-size: 1.1rem; }
-.city-group li::before { content: '📍'; position: absolute; left: 0; }
+.highlights {
+  margin-top: -3rem;
+  position: relative;
+  z-index: 2;
+  padding: 0 0 2rem;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.highlight-card {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border: var(--border-soft);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-med), box-shadow var(--transition-med);
+}
+
+.highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.highlight-card h3 {
+  color: #8b4513;
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.highlight-card p {
+  color: #5d4037;
+  margin: 0;
+}
 
 .cta-section {
   background: #fdfbf7;
-  padding: 6rem 0;
+  padding: 4rem 0 6rem;
   text-align: center;
   margin-top: 0;
   position: relative;
@@ -170,6 +213,10 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
@@ -177,18 +224,23 @@
   .hero-subtitle {
     font-size: 1.2rem;
   }
-  
-  .section-title {
-    font-size: 2rem;
+
+  .highlights {
+    margin-top: -2rem;
   }
-  
-  .features-grid {
+
+  .highlights-grid {
     grid-template-columns: 1fr;
-    padding: 0 1rem;
   }
   
   .cta-section h2 {
     font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    background-attachment: scroll;
   }
 }
 </style>

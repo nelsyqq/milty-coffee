@@ -1,70 +1,29 @@
 <template>
-  <div class="about-page">
-    <div class="hero-section">
-      <div class="hero-overlay">
-        <div class="container">
-          <div class="hero-content">
-            <h1>О Milty COFFEE</h1>
-            <p>Наша история, философия и страсть к кофе</p>
+  <div class="about-page page-shell">
+    <div class="page-hero page-hero--about">
+      <div class="page-hero-overlay">
+        <div class="page-container">
+          <div class="page-hero-content">
+            <h1>О Milty Coffee</h1>
+            <p>История, философия и любовь к хорошему кофе</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container">
+    <div class="page-container">
       <div class="about-grid">
-        <div class="about-card mission-card">
+        <div
+          v-for="card in aboutCards"
+          :key="card.title"
+          :class="['about-card', card.className]"
+        >
           <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800" alt="Coffee Art" />
+            <img :src="card.image" :alt="card.alt" />
           </div>
           <div class="card-content">
-            <h2>Наша миссия</h2>
-            <p>Мы создаем не просто кофе, а искусство в каждой чашке. Каждый день мы стремимся дарить нашим гостям уникальный опыт и самые лучшие вкусовые ощущения.</p>
-          </div>
-        </div>
-
-        <div class="about-card quality-card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800" alt="Coffee Beans" />
-          </div>
-          <div class="card-content">
-            <h2>Качество</h2>
-            <p>Мы тщательно отбираем кофейные зерна только из проверенных плантаций Колумбии. Все зерна проходят тщательный отбор и обжарку по нашим уникальным рецептам.</p>
-            <p>Наше оборудование — профессиональные итальянские кофемашины, которые обеспечивают идеальное приготовление кофе.</p>
-          </div>
-        </div>
-
-        <div class="about-card team-card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800" alt="Barista" />
-          </div>
-          <div class="card-content">
-            <h2>Наша команда</h2>
-            <p>Наши бариста проходят строгий отбор и обучение. Каждый из них — настоящий художник, способный создать шедевр на поверхности вашего кофе.</p>
-            <div class="team-members">
-              <div class="team-member">
-                <span class="member-name">Михаил</span>
-                <span class="member-role">Специалист по эспрессо</span>
-              </div>
-              <div class="team-member">
-                <span class="member-name">Павел</span>
-                <span class="member-role">Мастер латте-арта</span>
-              </div>
-              <div class="team-member">
-                <span class="member-name">Максим</span>
-                <span class="member-role">Эксперт по альтернативным методам</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="about-card atmosphere-card">
-          <div class="card-image">
-            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800" alt="Coffee Shop" />
-          </div>
-          <div class="card-content">
-            <h2>Атмосфера</h2>
-            <p>Milty Coffee — это не просто кофейня, это место, где царит уютная и творческая атмосфера. Мы создали пространство, где можно насладиться отличным кофе, поработать или просто отдохнуть.</p>
+            <h2>{{ card.title }}</h2>
+            <p v-for="paragraph in card.paragraphs" :key="paragraph">{{ paragraph }}</p>
           </div>
         </div>
       </div>
@@ -72,64 +31,47 @@
   </div>
 </template>
 
+<script setup>
+const aboutCards = [
+  {
+    className: 'mission-card',
+    title: 'Наша миссия',
+    image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800',
+    alt: 'Чашка кофе',
+    paragraphs: [
+      'Мы делаем не просто кофе — в каждой чашке внимание к деталям. Наша цель — дарить гостям яркие вкусы и спокойный, тёплый опыт.'
+    ]
+  },
+  {
+    className: 'quality-card',
+    title: 'Качество',
+    image: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=800',
+    alt: 'Кофейные зёрна',
+    paragraphs: [
+      'Зёрна отбираем на проверенных плантациях Колумбии, обжариваем по собственным профилям и следим за свежестью каждой партии.',
+      'Готовим на профессиональных итальянских кофемашинах — стабильная экстракция и вкус в каждой чашке.'
+    ]
+  },
+  {
+    className: 'atmosphere-card',
+    title: 'Атмосфера',
+    image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800',
+    alt: 'Интерьер кофейни',
+    paragraphs: [
+      'Milty Coffee — место с уютной, «живой» атмосферой: можно встретиться с друзьями, поработать с ноутбуком или неспешно допить капучино у окна.'
+    ]
+  }
+]
+</script>
+
 <style scoped>
-.about-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-}
-
-.hero-section {
-  position: relative;
-  height: 60vh;
-  min-height: 400px;
+.page-hero--about {
   background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1600');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  margin-bottom: 4rem;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.85) 0%, rgba(45, 45, 45, 0.75) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-content {
-  text-align: center;
-  color: white;
-  animation: fadeInUp 1s ease;
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-  letter-spacing: 2px;
-}
-
-.hero-content p {
-  font-size: 1.4rem;
-  opacity: 0.95;
-  font-weight: 300;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }
 
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   margin-bottom: 4rem;
 }
@@ -140,13 +82,7 @@
   overflow: hidden;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: fadeInUp 0.8s ease;
 }
-
-.about-card:nth-child(1) { animation-delay: 0.1s; }
-.about-card:nth-child(2) { animation-delay: 0.2s; }
-.about-card:nth-child(3) { animation-delay: 0.3s; }
-.about-card:nth-child(4) { animation-delay: 0.4s; }
 
 .about-card:hover {
   transform: translateY(-10px);
@@ -201,61 +137,7 @@
   margin-bottom: 1rem;
 }
 
-.team-members {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.team-member {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background: linear-gradient(135deg, rgba(201, 166, 107, 0.1), rgba(212, 175, 55, 0.05));
-  border-radius: 10px;
-  border-left: 3px solid #c9a66b;
-  transition: all 0.3s ease;
-}
-
-.team-member:hover {
-  background: linear-gradient(135deg, rgba(201, 166, 107, 0.2), rgba(212, 175, 55, 0.1));
-  transform: translateX(5px);
-}
-
-.member-name {
-  font-weight: 600;
-  color: #8B4513;
-  font-size: 1.1rem;
-}
-
-.member-role {
-  color: #c9a66b;
-  font-size: 0.95rem;
-  font-weight: 500;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-content p {
-    font-size: 1.1rem;
-  }
-
   .about-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
