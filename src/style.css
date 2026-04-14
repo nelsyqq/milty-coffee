@@ -1,0 +1,11 @@
+о вс/* Кофейная эстетика */
+:root {
+  --coffee-bg: #fdfbf7;      /* Кремовый фон */
+  --coffee-text: #2c2c2c;    /* Угольный текст */
+  --coffee-brown: #6f4e37;   /* Глубокий кофейный */
+  --coffee-gold: #d4af37;    /* Золотистый акцент */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: var(--coffee-bg); color: var(--coffee-text); line-height: 1.6; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
