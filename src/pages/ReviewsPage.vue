@@ -164,7 +164,7 @@ function formatDate(dateString) {
 
 <style scoped>
 .page-hero--reviews {
-  background-image: url('/fonotzyv.jpg');
+  background-image: url('/fonotzivi.jpg');
 }
 
 .reviews-content {
