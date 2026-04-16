@@ -66,7 +66,7 @@ const aboutCards = [
 
 <style scoped>
 .page-hero--about {
-  background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1600');
+  background-image: url('/fononas.jpg');
 }
 
 .about-grid {

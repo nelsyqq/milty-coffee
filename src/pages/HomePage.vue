@@ -75,7 +75,7 @@ const highlights = [
 
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-              url('https://images.unsplash.com/photo-1498804103079-a6351b050096?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+              url('/fonglavnaya.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

@@ -46,37 +46,37 @@ const menuSections = [
         name: 'Эспрессо',
         price: '120 ₽',
         description: '30 мл — крепкий и ароматный',
-        image: 'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=800&auto=format&fit=crop'
+        image: '/expresso.jpg'
       },
       {
         name: 'Американо',
         price: '130 ₽ · 200 мл',
         description: 'Классический чёрный кофе',
-        image: 'https://images.unsplash.com/photo-1494314671902-399b18174975?w=800&auto=format&fit=crop'
+        image: '/americano.jpg'
       },
       {
         name: 'Капучино',
         price: '160 ₽ · 200 мл',
         description: 'Эспрессо, молоко и нежная молочная пенка',
-        image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&auto=format&fit=crop'
+        image: '/capu4ino.jpg'
       },
       {
         name: 'Латте',
         price: '170 ₽ · 300 мл',
         description: 'Мягкий вкус: больше молока, деликатная горчинка',
-        image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&auto=format&fit=crop'
+        image: '/latte.jpg'
       },
       {
         name: 'Флэт-уайт',
         price: '190 ₽ · 200 мл',
         description: 'Идеальный баланс кофе и молока',
-        image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&auto=format&fit=crop'
+        image: '/flet.jpg'
       },
       {
         name: 'Раф',
         price: '200 ₽ · 300 мл',
         description: 'Эспрессо, сливки и сироп — нежная классика',
-        image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=800&auto=format&fit=crop'
+        image: '/expresso.jpg'
       }
     ]
   },
@@ -87,25 +87,25 @@ const menuSections = [
         name: 'Тирамису',
         price: '250 ₽',
         description: 'Классический итальянский десерт',
-        image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&auto=format&fit=crop'
+        image: '/tiramisu.jpg'
       },
       {
         name: 'Чизкейк Нью-Йорк',
         price: '220 ₽',
         description: 'Нежный творожный десерт',
-        image: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=800&auto=format&fit=crop'
+        image: '/4izcake.jpg'
       },
       {
         name: 'Медовик',
         price: '180 ₽',
         description: 'Традиционный русский торт',
-        image: 'https://yastatic.net/naydex/yandex-search/RoQn69z78/7ae2803Q8/DuKAzDxkBgLBMC0SFXfsUKX_m8dXvqaxqR4FR4gugqMvTDlkNgn38kJnD-gmZIx2kxDdD2jIRh5DnDNCLrsIQGpuedRY0Le-caiclrnXSOQJ-qfHU_v7lfUbzaw'
+        image: '/mdovik.jpg'
       },
       {
         name: 'Макарон',
         price: '90 ₽ / шт',
         description: 'Французское миндальное печенье с начинкой',
-        image: 'https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=800&auto=format&fit=crop'
+        image: '/makaron.jpg'
       }
     ]
   },
@@ -116,13 +116,13 @@ const menuSections = [
         name: 'Сиропы',
         price: '+30 ₽',
         description: 'Ваниль, карамель, кокос, лесной орех',
-        image: 'https://avatars.mds.yandex.net/i?id=8221c41e76b6d9524458c7d53a274390_l-5869577-images-thumbs&n=13'
+        image: '/siropi.jpg'
       },
       {
         name: 'Альтернативное молоко',
         price: '+20 ₽',
         description: 'Кокосовое, миндальное, соевое',
-        image: 'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=800&auto=format&fit=crop'
+        image: '/altmoloko.jpg'
       }
     ]
   }
@@ -131,7 +131,7 @@ const menuSections = [
 
 <style scoped>
 .page-hero--menu {
-  background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600');
+  background-image: url('/fonmenu.jpg');
 }
  
 .menu-section {

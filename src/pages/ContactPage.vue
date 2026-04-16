@@ -246,7 +246,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .page-hero--contact {
-  background-image: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1600');
+  background-image: url('/foncontact.jpg');
 }
 
 .contact-content {
